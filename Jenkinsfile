@@ -6,21 +6,23 @@ pipeline {
 
     stages {
 
-        stage('Build') {
-            steps {
-                sh '''
-                    ./jenkins/build/mvn.sh mvn -B -DskipTests clean package
-                    ./jenkins/build/build.sh
 
+    stages {
+        stage('Build') {
+            agent { label 'kube' }
+            steps {
+                echo 'Building..'
+                sh '''
                 '''
             }
-
-            post {
-                success {
-                   archiveArtifacts artifacts: 'java-app/target/*.jar', fingerprint: true
-                }
-            }
         }
+    }
+
+    post {
+        success {
+            echo 'This will run only if successful'
+        }
+    }
 
         stage('Test') {
             steps {
