@@ -1,7 +1,10 @@
 pipeline {
 
     agent any
-    
+     environment {
+        PASS = credentials('DjPvzkdCTP7mqSs') 
+    }
+   
 
     stages {
 
@@ -10,14 +13,15 @@ pipeline {
             steps {
 		    
                   echo 'Building..'
-                  echo $HOSTNAME
-  
+                    sh '''
+                    ./jenkins_steps/build.sh
+                '''
             }
 
             post {
                 success {
                     echo 'This will run only if successful'
-                    echo $HOSTNAME
+      
                 }
             }
         }
