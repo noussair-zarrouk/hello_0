@@ -7,7 +7,7 @@ pipeline {
 
         stage('Build') {
             steps {
-		agent { label 'kube' }
+		    agent { label 'kube' }
                   echo 'Building..'
                   echo $HOSTNAME
   
