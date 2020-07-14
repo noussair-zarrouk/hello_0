@@ -1,7 +1,7 @@
 rm -rf kanban
 echo 'DjPvzkdCTP7mqSs' > ~/my_password.txt 
-cat ~/my_password.txt | sudo docker login --username noussair333 --password-stdin
-#sudo docker login -u noussair333 -p $PASS
+#cat ~/my_password.txt | sudo docker login --username noussair333 --password-stdin
+sudo docker login -u noussair333 -p 'DjPvzkdCTP7mqSs'
 #echo '{
 #  "Username": "noussair333",
 #  "Secret": "DjPvzkdCTP7mqSs"
