@@ -1,10 +1,6 @@
 pipeline {
 
     agent any
-     environment {
-        PASS = credentials('DjPvzkdCTP7mqSs') 
-    }
-   
 
     stages {
 
