@@ -2,7 +2,7 @@ pipeline {
 
     agent any
 
-    stages {
+
 
     stages {
         stage('Build') {
@@ -13,14 +13,14 @@ pipeline {
                 '''
             }
         }
-    }
+    
 
     post {
         success {
             echo 'This will run only if successful'
         }
     }
-
+    }
         stage('Test') {
             steps {
                 sh './jenkins/test/mvn.sh mvn test'
