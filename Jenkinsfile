@@ -5,7 +5,7 @@ pipeline {
     stages {
 
         stage('Build') {
-            agent { label 'kube' }
+            agent { label 'docker' }
             steps {
 		    
                   echo 'Building..'
