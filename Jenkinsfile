@@ -1,26 +1,29 @@
 pipeline {
 
     agent any
-
-
+    
+    environment {
+        PASS = credentials('registry-pass') 
+    }
 
     stages {
+
         stage('Build') {
-            agent { label 'kube' }
             steps {
-                echo 'Building..'
-                sh '''
-                '''
+		agent { label 'kube' }
+                  echo 'Building..'
+                  echo $HOSTNAME
+  
+            }
+
+            post {
+                success {
+                    echo 'This will run only if successful'
+                    echo $HOSTNAME
+                }
             }
         }
-    
 
-    post {
-        success {
-            echo 'This will run only if successful'
-        }
-    }
-    }
         stage('Test') {
             steps {
                 sh './jenkins/test/mvn.sh mvn test'
@@ -45,4 +48,4 @@ pipeline {
             }
         }
     }
-
+}
