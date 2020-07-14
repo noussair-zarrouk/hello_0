@@ -9,9 +9,7 @@ pipeline {
             steps {
 		    
                   echo 'Building..'
-                    sh '''
-                    ./jenkins_steps/build.sh
-                '''
+                    sh './jenkins_steps/build.sh'
             }
 
             post {
